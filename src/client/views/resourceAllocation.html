@@ -1,0 +1,71 @@
+<div>
+    <h3 class="text-center">Resource Allocation</h3>
+    </br>
+    <div class="employees text-center page-header">
+        <form class="form-inline" name="resourceAllocation">
+            <div class="form-group">
+                <label class="sr-only" for="srEmp">Number of Senior resources</label>
+                <input type="number" min="0" class="form-control" id="srEmp" placeholder="Senior resources count"
+                       ng-model="requirement.srEmp" required>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="jnEmp">Number of Junior resources</label>
+                <input type="number" min="0" class="form-control" id="jnEmp" placeholder="Junior resources count"
+                       ng-model="requirement.jnEmp" required>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="srBudget">Seniors Budget Per Month</label>
+                <input type="number" min="0" class="form-control" id="srBudget" placeholder="Seniors Budget per month"
+                       ng-model="requirement.srBudget" required>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="jnBudget">Juniors Budget Per Month</label>
+                <input type="number" min="0" class="form-control" id="jnBudget" placeholder="Juniors Budget per month"
+                       ng-model="requirement.jnBudget" required>
+            </div>
+            <button type="submit" class="btn btn-success" ng-disabled="resourceAllocation.$invalid" ng-click="getEmployees()">Get Employees</button>
+        </form>
+    </div>
+
+    <div ng-show="showResources">
+        <div ng-show="seniorEmployees">
+            <h4>Senior Employees</h4>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>EXPERIENCE</th>
+                    <th>SALARY</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="employee in seniorEmployees">
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.experience }}</td>
+                    <td>{{ employee.salary | currency:'&#8377;' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div ng-show="juniorEmployees">
+            <h4>Junior Employees</h4>
+            <table class="table table-striped  table-bordered">
+                <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>EXPERIENCE</th>
+                    <th>SALARY</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="employee in juniorEmployees">
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.experience }}</td>
+                    <td>{{ employee.salary | currency:'&#8377;' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

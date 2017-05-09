@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="drawinboxApp">
+    <head>
+        <title>Drawinbox App</title>
+
+        <!----CSS----->
+        <!--- Custom css--->
+        <link rel="stylesheet" href="client/css/style.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+    <body>
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Drawinbox</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#/employees">Employees List</a></li>
+                <li><a href="#/resource-allocation">Resource Allocation</a></li>
+            </ul>
+            <div ng-view></div>
+        </div>
+        
+    </body>
+    <!---angular--->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+    <!---bootstrap--->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!---manual--->
+    <script src="client/js/app.js"></script>
+    <script src="client/js/factory/main.factory.js"></script>
+    <script src="client/js/service/main.service.js"></script>
+    <script src="client/js/service/employee.service.js"></script>
+    <script src="client/js/service/resourceAllocation.service.js"></script>
+    <script src="client/js/config/app.config.js"></script>
+    <script src="client/js/controller/app.controller.js"></script>
+    <script src="client/js/controller/employee.controller.js"></script>
+    <script src="client/js/controller/resourceAllocation.controller.js"></script>
+
+
+</html>
