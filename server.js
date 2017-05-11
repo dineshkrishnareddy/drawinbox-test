@@ -7,8 +7,6 @@ app.use(express.static(__dirname + '/src'));
 require("./src/server/router/router.js")(app);
 
 
-//mongoose.connect("mongodb://dinesh:dinesh@ds055574.mlab.com:55574/sample");
-
 mongoose.connect('mongodb://localhost:27017/drawinbox');
 
 mongoose.connection.on('open', function (ref) {

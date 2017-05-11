@@ -29,10 +29,10 @@ function createRandomName() {
     return text;
 }
 
-var numTestDocs = 100;
+var numTestDocs = 5000;
 for(var i = 0; i < numTestDocs; i++) {
    var item = new db.employeeModel({
-      name: createRandomName(),
+      name: "user-"+i,
       experience: createRandomExperience(),
       salary: getRandomInt(0, 1000000)
    });

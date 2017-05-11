@@ -80,12 +80,11 @@ module.exports = function (app){
         })
     });
 
-
     app.post('/api/resources',function(req,res){
-        var srBudget = parseFloat(req.body.srBudget),
-            jnBudget = parseFloat(req.body.jnBudget),
-            srEmp = parseFloat(req.body.srEmp),
-            jnEmp = parseFloat(req.body.jnEmp),
+        var srBudget = parseFloat(req.body.srBudget || 0),
+            jnBudget = parseFloat(req.body.jnBudget || 0),
+            srEmp = parseFloat(req.body.srEmp || 0),
+            jnEmp = parseFloat(req.body.jnEmp || 0),
             seniorEmployees = [],
             juniorEmployees = [], i, j;
 
@@ -93,7 +92,7 @@ module.exports = function (app){
 
             db.employeeModel
                 .find({salary: {$lt: srBudget}, experience: {$gt: 3}})
-                .sort({experience: 'desc'})
+                .sort({experience: 'desc', salary: 'asc'})
                 .exec(function (err, result) {
 
                     if (err) {
@@ -117,7 +116,7 @@ module.exports = function (app){
                     if (jnEmp > 0){
                         db.employeeModel
                             .find({salary: {$lt: jnBudget}, experience: {$lt: 3}})
-                            .sort({experience: 'desc'})
+                            .sort({experience: 'desc', salary: 'asc'})
                             .exec(function (err, result) {
                                 if (err) {
 
@@ -147,7 +146,7 @@ module.exports = function (app){
 
             db.employeeModel
                 .find({salary: {$lt: jnBudget}, experience: {$lt: 3}})
-                .sort({experience: 'desc'})
+                .sort({experience: 'desc', salary: 'asc'})
                 .exec(function (err, result) {
                     if (err) {
 
